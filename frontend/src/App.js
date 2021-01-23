@@ -1,11 +1,20 @@
-import './App.css';
+import { connect } from "react-redux";
+import "./App.css";
 
-function App() {
+function App({ state }) {
   return (
     <div className="App">
       <h1>Hello</h1>
+      {/* <p>{state.blogR}</p> */}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    ...state,
+  };
+};
+
+export default connect(mapStateToProps)(App);

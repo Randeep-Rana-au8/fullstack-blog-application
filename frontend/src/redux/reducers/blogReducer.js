@@ -1,5 +1,5 @@
 const initialState = {
-  users: [],
+  blogs: [],
 };
 
 const blogsReducer = (state = initialState, action) => {
@@ -7,7 +7,7 @@ const blogsReducer = (state = initialState, action) => {
     case "ADD_BLOG":
       return {
         ...state,
-        users: [...state.users, action.data],
+        blogs: [...state.blogs, action.data],
       };
     default:
       return {
