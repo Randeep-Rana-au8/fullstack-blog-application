@@ -5,7 +5,7 @@ const Api = require("./routes/data");
 const posts = require('./routes/blogs')
 
 const port = process.env.PORT || 3001;
-const user = require("./routes/user/registerUser");
+const user = require("./routes/user/user");
 const health = require("./routes/health");
 
 const InitiateMongoServer = require("./auth/db");

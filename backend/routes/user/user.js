@@ -2,6 +2,7 @@ const express = require("express");
 const router = express();
 const User = require("../../model/user");
 const Joi = require('joi');
+const { route } = require("../data");
 
 router.post("/RegisterUser", async (req, res) => {
   console.log(req.body);
@@ -31,5 +32,13 @@ function validateUser(data) {
 
   return Joi.validate(data, schema);
 }
+
+
+
+// This is admin only route
+router.get('/allusers', async (req,res) => {
+  const users = await User.find()
+    res.send(users)
+})
 
 module.exports = router;
