@@ -1,15 +1,12 @@
 const Blog = require("../model/blogPost");
 const express = require("express");
-const router = express();
 const app = express();
 const Joi = require("joi");
 
-router.get('/posts', async (req,res) => {
- 
-  const blogs = await Blog.find()
-  res.send(blogs)
-
-})
+app.get("/posts", async (req, res) => {
+  const blogs = await Blog.find();
+  res.send(blogs);
+});
 
 app.post("/blog", async (req, res) => {
   const { error } = validateBlog(req.body);
