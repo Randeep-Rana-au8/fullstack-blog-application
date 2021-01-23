@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const Api = require("./routes/data");
+const posts = require('./routes/blogs')
 
 const port = process.env.PORT || 3001;
 const user = require("./routes/user/registerUser");
@@ -18,6 +19,7 @@ InitiateMongoServer();
 
 app.use("/", health);
 app.use("/api", Api);
+app.use("/api", posts);
 
 app.listen(port, (err) => {
   if (err) throw err;

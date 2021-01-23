@@ -1,7 +1,15 @@
 const Blog = require("../model/blogPost");
 const express = require("express");
+const router = express();
 const app = express();
 const Joi = require("joi");
+
+router.get('/posts', async (req,res) => {
+ 
+  const blogs = await Blog.find()
+  res.send(blogs)
+
+})
 
 app.post("/blog", async (req, res) => {
   const { error } = validateBlog(req.body);
@@ -24,7 +32,7 @@ app.post("/blog", async (req, res) => {
 
 function validateBlog(data) {
   const schema = {
-    title: Joi.string().min(10).max(40).required(),
+    title: Joi.string().min(10).max(50).required(),
     description: Joi.string().min(50).max(1500).required(),
     date: Joi.date(),
     category: Joi.string().required(),

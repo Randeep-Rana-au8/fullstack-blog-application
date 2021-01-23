@@ -5,10 +5,6 @@ const Category = require('../model/category')
 
 
 router.get('/category', async (req,res) => {
-    // db.collection('category').find({}).toArray((err,result)=>{
-    //     if(err) throw err
-    //     res.status(200).send(result)
-    // })
     const category = await Category.find()
     res.send(category)
 
