@@ -7,7 +7,7 @@ const blogsReducer = (state = initialState, action) => {
     case "ADD_BLOG":
       return {
         ...state,
-        blogs: [...state.blogs, action.data],
+        blogs: action.payload,
       };
     default:
       return {
