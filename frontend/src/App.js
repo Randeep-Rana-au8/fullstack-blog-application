@@ -5,7 +5,6 @@ function App({ state }) {
   return (
     <div className="App">
       <h1>Hello</h1>
-      {/* <p>{state.blogR}</p> */}
     </div>
   );
 }

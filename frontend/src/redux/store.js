@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from "redux";
-import blogsReducer from "./redux/reducers/blogReducer";
-import usersReducer from "./redux/reducers/userReducer";
+import blogsReducer from "./reducers/blogReducer";
+import usersReducer from "./reducers/userReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const store = createStore(
