@@ -4,6 +4,8 @@ import axios from "axios";
 import "./App.css";
 import { add_blog, last_blog } from "./redux/actions/allActions";
 import Navbar from "./components/Navbar/Navbar";
+import LatestBlog from "./components/LatestBlog";
+import AllBlogs from "./components/AllBlogs";
 
 function App({ state, add_blog, last_blog }) {
   const allBlogs = state.blogsReducer.blogs;
@@ -27,19 +29,8 @@ function App({ state, add_blog, last_blog }) {
       <section>
         {allBlogs ? (
           <div className="container">
-            <div className="latestBlog">
-              <img height="120px" src={latestBlog.imageUrl} alt="Latest blog image" />
-              <h3>Last blog {latestBlog.title}</h3>
-              <p>{latestBlog.description}</p>
-            </div>
-            <div className="allBlogs">
-              {state.blogsReducer.blogs.map((blog) => (
-                <div key={blog.id} className="blog">
-                  <h5>{blog.title}</h5>
-                  <img height="100px" src={blog.imageUrl} />
-                </div>
-              ))}
-            </div>
+            <LatestBlog data={latestBlog} />
+            <AllBlogs data={allBlogs} />
           </div>
         ) : (
           "Loading..."
