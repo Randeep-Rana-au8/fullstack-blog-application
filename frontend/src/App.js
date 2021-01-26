@@ -11,7 +11,7 @@ function App({ state, add_blog }) {
       .get("https://myvicharbackend.herokuapp.com/api/posts")
       .then((res) => add_blog(res.data));
   }, []);
-  console.log(state);
+
   return (
     <div className="App">
       <h1>Hello</h1>

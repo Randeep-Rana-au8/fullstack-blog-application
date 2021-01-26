@@ -33,3 +33,6 @@
 >> Authentication
 	> /login => here user have to pass email and password to login
 	> /signup => here user have to pass email and password and username
+
+>> Notification
+	User will get Notification of the subscribed or followed author in the bell icon section or in the notification section, whenever the author post a blog 
