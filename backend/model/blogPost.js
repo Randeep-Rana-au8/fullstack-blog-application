@@ -16,6 +16,10 @@ const blogSchema = new mongoose.Schema({
     max: 1500,
     trim: true,
   },
+  imageUrl: {
+    type: String,
+    trim: true,
+  },
   author: {
     type: String,
     required: true,
