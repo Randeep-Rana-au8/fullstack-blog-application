@@ -1,3 +1,13 @@
 .App {
   padding: 0px 40px;
 }
+
+.container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.latestBlog {
+  width: 40%;
+  margin-right: 30px;
+}

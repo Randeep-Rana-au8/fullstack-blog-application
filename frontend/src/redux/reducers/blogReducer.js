@@ -1,5 +1,6 @@
 const initialState = {
-  blogs: [],
+  blogs: "",
+  lastBlog: {},
 };
 
 const blogsReducer = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const blogsReducer = (state = initialState, action) => {
       return {
         ...state,
         blogs: action.payload,
+      };
+    case "LAST_BLOG":
+      return {
+        ...state,
+        lastBlog: action.payload,
       };
     default:
       return {
