@@ -4,6 +4,7 @@ import { add_blog } from "./redux/actions/allActions";
 import { useEffect } from "react";
 
 import axios from "axios";
+import Navbar from "./components/Navbar/Navbar";
 
 function App({ state, add_blog }) {
   useEffect(() => {
@@ -14,9 +15,12 @@ function App({ state, add_blog }) {
 
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Navbar />
       {state.blogsReducer.blogs.map((blog) => (
-        <h1>{blog.title}</h1>
+        <div>
+          <h1>{blog.title}</h1>
+          <img src={blog.imageUrl} />
+        </div>
       ))}
     </div>
   );
