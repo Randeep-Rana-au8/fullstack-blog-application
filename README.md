@@ -10,4 +10,4 @@
 > - Express
 > - mongoose
 
-### Work is in progress websites is not completed yet if you want to see the work Do clone of this repository..
+### Work is in progress, website is not completed yet if you want to see the work Do clone of this repository..
