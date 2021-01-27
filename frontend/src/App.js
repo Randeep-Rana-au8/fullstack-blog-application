@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import LatestBlog from "./components/blog&category/LatestBlog";
 import AllBlogs from "./components/blog&category/AllBlogs";
 import "./App.css";
+import Input from "./components/Input";
 
 function App({ state, add_blog, last_blog }) {
   const { blogs, lastBlog } = state.blogsReducer;
@@ -20,6 +21,8 @@ function App({ state, add_blog, last_blog }) {
 
   return (
     <div className="App">
+      <Input />
+
       <Navbar />
       <section>
         {blogs ? (
