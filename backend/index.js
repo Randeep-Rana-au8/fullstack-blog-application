@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const Api = require("./routes/data");
 const posts = require("./routes/blogs");
-const login = require("./routes/user/login");
 
 const port = process.env.PORT || 3001;
 const user = require("./routes/user/user");
@@ -16,7 +15,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/", user);
-app.use("/", login);
 InitiateMongoServer();
 
 app.use("/", health);
