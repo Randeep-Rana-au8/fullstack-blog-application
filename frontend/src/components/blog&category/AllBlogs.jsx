@@ -1,4 +1,5 @@
 import React from "react";
+import "./AllBlog.css";
 
 const AllBlogs = ({ data }) => {
   return (
@@ -8,8 +9,10 @@ const AllBlogs = ({ data }) => {
         .reverse()
         .map((blog) => (
           <div key={blog.id} className="blog">
-            <h5>{blog.title}</h5>
-            <img height="100px" src={blog.imageUrl} />
+            <h5 className="blog-title" style={{ marginTop: "0", maxWidth: "240px" }}>
+              {blog.title}{" "}
+            </h5>
+            <img height="100px" alt="Blog" src={blog.imageUrl} />
           </div>
         ))}
     </div>

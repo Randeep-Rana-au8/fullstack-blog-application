@@ -11,7 +11,6 @@ function App() {
         <h1>Namastey, Welcome to EKVICHAR.COM</h1>
       </Route>
       <Route path="/homepage" component={Homepage} />
-      {/* <Homepage /> */}
     </div>
   );
 }

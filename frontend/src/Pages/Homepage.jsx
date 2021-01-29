@@ -5,8 +5,6 @@ import { add_blog, last_blog } from "../redux/actions/allActions";
 import LatestBlog from "../components/blog&category/LatestBlog";
 import AllBlogs from "../components/blog&category/AllBlogs";
 
-import Input from "../components/Input";
-
 const Homepage = ({ state, add_blog, last_blog }) => {
   const { blogs, lastBlog } = state.blogsReducer;
 
@@ -21,7 +19,6 @@ const Homepage = ({ state, add_blog, last_blog }) => {
 
   return (
     <div className="homepage">
-      <Input />
       <section>
         {blogs ? (
           <div className="container">

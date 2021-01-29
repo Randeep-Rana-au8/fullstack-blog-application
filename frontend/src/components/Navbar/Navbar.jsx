@@ -17,6 +17,9 @@ const Navbar = () => {
         <Link to="/category">
           <p className="navbar-item">Category</p>
         </Link>
+        <Link to="/addpost">
+          <p className="navbar-item">Add Post</p>
+        </Link>
         <Link to="/profile">
           <p className="navbar-item">Profile</p>
         </Link>
