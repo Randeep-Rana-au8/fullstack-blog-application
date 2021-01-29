@@ -1,6 +1,6 @@
 const initialState = {
   blogs: "",
-  lastBlog: {},
+  lastBlog: "",
 };
 
 const blogsReducer = (state = initialState, action) => {

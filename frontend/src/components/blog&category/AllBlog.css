@@ -2,4 +2,11 @@
   display: flex;
   width: 400px;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
+
+/* .postImage {
+  height: 100px;
+  width: 100%; */
+/* object-fit: contain; */
+/* } */
