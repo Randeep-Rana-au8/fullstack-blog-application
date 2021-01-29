@@ -20,6 +20,7 @@ app.post("/blog", async (req, res) => {
     views: req.body.views ? req.body.views : 0,
     date: Date.now(),
     _id: req.body._id,
+    thumbnail: req.body.thumbnail,
     category: req.body.category,
   });
 
@@ -36,8 +37,9 @@ function validateBlog(data) {
     views: Joi.number(),
     likes: Joi.number(),
     comments: Joi.array(),
-    author: Joi.string().required(),
+    author: Joi.object().required(),
     _id: Joi.number().required(),
+    thumbnail: Joi.string().required(),
   };
 
   return Joi.validate(data, schema);

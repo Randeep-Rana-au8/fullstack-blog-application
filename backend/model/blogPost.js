@@ -21,7 +21,7 @@ const blogSchema = new mongoose.Schema({
     trim: true,
   },
   author: {
-    type: String,
+    type: Object,
     required: true,
   },
   category: {
@@ -43,6 +43,10 @@ const blogSchema = new mongoose.Schema({
   views: {
     type: Number,
     default: 0,
+  },
+  thumbnail: {
+    type: String,
+    required: true,
   },
 });
 
