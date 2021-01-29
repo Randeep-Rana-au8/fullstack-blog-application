@@ -4,6 +4,7 @@ import axios from "axios";
 import { add_blog, last_blog } from "../redux/actions/allActions";
 import LatestBlog from "../components/blog&category/LatestBlog";
 import AllBlogs from "../components/blog&category/AllBlogs";
+import TopCreators from "../components/Creators/TopCreators";
 
 const Homepage = ({ state, add_blog, last_blog }) => {
   const { blogs, lastBlog } = state.blogsReducer;
@@ -24,6 +25,7 @@ const Homepage = ({ state, add_blog, last_blog }) => {
           <div className="container">
             <LatestBlog data={lastBlog} />
             <AllBlogs data={blogs} />
+            <TopCreators />
           </div>
         ) : (
           "Loading..."
