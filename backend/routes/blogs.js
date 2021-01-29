@@ -33,12 +33,12 @@ function validateBlog(data) {
     title: Joi.string().min(10).max(50).required(),
     description: Joi.string().min(50).max(1500).required(),
     date: Joi.date(),
-    category: Joi.string().required(),
+    category: Joi.array().required(),
     views: Joi.number(),
     likes: Joi.number(),
     comments: Joi.array(),
     author: Joi.object().required(),
-    _id: Joi.number().required(),
+    _id: Joi.number(),
     thumbnail: Joi.string().required(),
   };
 

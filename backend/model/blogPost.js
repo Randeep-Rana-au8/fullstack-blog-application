@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema({
-  _id: Number,
   title: {
     type: String,
     required: true,
@@ -25,7 +24,7 @@ const blogSchema = new mongoose.Schema({
     required: true,
   },
   category: {
-    type: String,
+    type: Array,
     required: true,
   },
   createdAt: {
