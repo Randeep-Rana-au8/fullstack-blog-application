@@ -1,6 +1,6 @@
 import Homepage from "./Pages/Homepage";
 import Loginpage from "./Pages/loginPage";
-import Ragister from "./components/auth/ragister";
+import Register from "./components/auth/register";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
@@ -19,7 +19,7 @@ function App() {
       <Route exact path="/blog/:id" component={Blog} />
       <Route exact path="/categories" component={Category} />
       <Route exact path="/signin" component={Loginpage} />
-      <Route exact path="/signup" component={Ragister} />
+      <Route exact path="/signup" component={Register} />
     </div>
   );
 }
