@@ -1,6 +1,6 @@
 import Homepage from "./Pages/Homepage";
 import Loginpage from "./Pages/loginPage";
-// import  Login  from "./components/userRegistration/login";
+import  Ragister  from "./components/auth/ragister";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
@@ -13,7 +13,8 @@ function App() {
         <h1>Namastey, Welcome to EKVICHAR.COM</h1>
       </Route>
       <Route path="/homepage" component={Homepage} />
-      <Route exact path="/loginpage" component={Loginpage} />
+      <Route exact path="/signin" component={Loginpage} />
+      <Route exact path="/signup" component={Ragister} />
     </div>
   );
 }
