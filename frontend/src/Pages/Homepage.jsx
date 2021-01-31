@@ -39,6 +39,7 @@ const Homepage = ({ state, add_blog, last_blog }) => {
         <Category />
       </section>
       <section>
+        <hr />
         {blogs ? (
           <div className="container">
             <RestBlogs data={blogs} />

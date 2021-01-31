@@ -1,5 +1,5 @@
 .RestBlogs {
-  width: 900px;
+  width: 960px;
 }
 
 .blog {
@@ -7,10 +7,12 @@
   width: 100%;
   justify-content: space-between;
   margin-bottom: 5px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .blog-title {
-  max-width: "80%";
+  max-width: "70%";
 }
 
 .Link {
