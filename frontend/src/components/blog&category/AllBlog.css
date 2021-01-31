@@ -10,3 +10,12 @@
   width: 100%; */
 /* object-fit: contain; */
 /* } */
+
+.Link {
+  text-decoration: none;
+  color: black;
+}
+
+.Link:hover {
+  color: red;
+}
