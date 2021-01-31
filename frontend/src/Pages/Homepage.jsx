@@ -5,6 +5,7 @@ import { add_blog, last_blog } from "../redux/actions/allActions";
 import LatestBlog from "../components/blog&category/LatestBlog";
 import AllBlogs from "../components/blog&category/AllBlogs";
 import TopCreators from "../components/Creators/TopCreators";
+import Category from "../components/blog&category/Category";
 
 const Homepage = ({ state, add_blog, last_blog }) => {
   const { blogs, lastBlog } = state.blogsReducer;
@@ -32,7 +33,7 @@ const Homepage = ({ state, add_blog, last_blog }) => {
         )}
       </section>
       <section>
-        <h1>Categories</h1>
+        <Category />
       </section>
     </div>
   );

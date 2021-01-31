@@ -12,7 +12,19 @@ const Blog = () => {
     setBlog(res.data);
   }, []);
 
-  return <div>{blog ? blog.title : "Loading..."}</div>;
+  return (
+    <div>
+      {blog ? (
+        <div>
+          <img width="500px" src={blog.imageUrl} />
+          <h1>{blog.title}</h1>
+          <p>{blog.description}</p>
+        </div>
+      ) : (
+        "Loading..."
+      )}
+    </div>
+  );
 };
 
 export default Blog;

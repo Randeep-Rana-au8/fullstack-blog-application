@@ -1,6 +1,7 @@
 const initialState = {
   blogs: "",
   lastBlog: "",
+  categories: [],
 };
 
 const blogsReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const blogsReducer = (state = initialState, action) => {
       return {
         ...state,
         lastBlog: action.payload,
+      };
+    case "ADD_CATEGORIES":
+      return {
+        ...state,
+        categories: action.payload,
       };
     default:
       return {

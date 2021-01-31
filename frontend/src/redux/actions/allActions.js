@@ -13,3 +13,10 @@ export const last_blog = (data) => {
     payload: lastBlog,
   };
 };
+
+export const add_categories = (data) => {
+  return {
+    type: "ADD_CATEGORIES",
+    payload: data,
+  };
+};
