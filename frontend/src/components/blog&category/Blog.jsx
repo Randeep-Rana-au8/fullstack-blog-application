@@ -7,7 +7,7 @@ const Blog = () => {
   let [blog, setBlog] = useState("");
   const { id } = useParams();
   useEffect(async () => {
-    const res = await axios.get(`http://localhost:3001/blog/${id}`);
+    const res = await axios.get(`https://myvicharbackend.herokuapp.com/blog/${id}`);
     console.log(res.data);
     setBlog(res.data);
   }, []);
