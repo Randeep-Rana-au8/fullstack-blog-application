@@ -1,0 +1,23 @@
+.RestBlogs {
+  width: 900px;
+}
+
+.blog {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.blog-title {
+  max-width: "80%";
+}
+
+.Link {
+  text-decoration: none;
+  color: black;
+}
+
+.Link:hover {
+  color: red;
+}
