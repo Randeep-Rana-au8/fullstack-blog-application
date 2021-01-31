@@ -11,12 +11,16 @@ const health = require("./routes/health");
 const InitiateMongoServer = require("./auth/db");
 
 let app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/", user);
 InitiateMongoServer();
 
+app.use("/", user);
 app.use("/", health);
 app.use("/api", Api);
 app.use("/api", posts);

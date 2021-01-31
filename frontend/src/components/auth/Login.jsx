@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 
@@ -14,7 +15,7 @@ const Login = () => {
     e.preventDefault()
     console.log(email, password);
 
-    axios.post('http://localhost:3001/login', {
+    axios.post('https://myvicharbackend.herokuapp.com/login', {
       email: email,
       password: password
     })
@@ -31,6 +32,8 @@ const Login = () => {
       <input type="text" required placeholder="email" onChange={onEmailChange} />
       <input type="password" required placeholder="password" onChange={onPasswordChange}/>
       <button type="submit">login</button>
+      New User?
+      <Link to="/signup">signup</Link>
     </form>
   );
 };
