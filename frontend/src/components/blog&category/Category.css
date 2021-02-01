@@ -4,6 +4,11 @@
   padding: 50px;
   background-size: contain;
   color: white;
+  cursor: pointer;
+}
+
+.category-button:hover {
+  font-size: 15px;
 }
 
 /* .overlay {

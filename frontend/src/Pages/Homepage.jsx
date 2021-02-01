@@ -34,7 +34,7 @@ const Homepage = ({ state, add_blog, last_blog }) => {
           "Loading..."
         )}
       </section>
-      <section>
+      <section id="category">
         <hr />
         <Category />
       </section>

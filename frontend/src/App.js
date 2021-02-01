@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <hr />
       <Route exact path="/">
         <h1>Namastey, Welcome to EKVICHAR.COM</h1>
       </Route>
