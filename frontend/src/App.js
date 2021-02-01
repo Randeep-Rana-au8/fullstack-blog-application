@@ -7,6 +7,7 @@ import "./App.css";
 import Blog from "./components/blog&category/Blog";
 import Category from "./components/blog&category/Category";
 import Footer from "./components/Footer/Footer";
+import NewBlog from "./components/blog&category/AddBlog/NewBlog";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route exact path="/categories" component={Category} />
       <Route exact path="/signin" component={Loginpage} />
       <Route exact path="/signup" component={Register} />
+      <Route exact path="/addpost" component={NewBlog} />
       <hr />
       <Footer />
     </div>
