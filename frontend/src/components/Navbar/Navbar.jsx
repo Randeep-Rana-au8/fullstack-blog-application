@@ -8,11 +8,18 @@ import logo from "./brandnewlogo.jpg";
 
 const Navbar = ({ state }) => {
   const  user  = state.usersReducer.user
-  console.log(user)
+  let userData;
+  if (user != null) {
+    userData = JSON.parse(window.localStorage.getItem("user"));
+    console.log(userData)
+  } else {
+    userData = null;
+  }
 
   const handleLogoutSuccess = () => {
-    alert("Logged out successfully");
+    window.localStorage.removeItem("user")
     logOutUser();
+    alert("Logged out successfully");
   };
 
   return (
