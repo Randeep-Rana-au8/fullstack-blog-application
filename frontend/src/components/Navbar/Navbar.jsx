@@ -1,10 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { connect } from "react-redux";
+import { logOutUser } from '../../redux/actions/userActions'
 import "./Navbar.css";
 import logo from "./brandnewlogo.jpg";
 
-const Navbar = () => {
+const Navbar = ({ state }) => {
+  const  user  = state.usersReducer.user
+  console.log(user)
+
+  const handleLogoutSuccess = () => {
+    alert("Logged out successfully");
+    logOutUser();
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-title">
@@ -25,9 +35,25 @@ const Navbar = () => {
         <Link className="Link" to="/profile">
           <p className="navbar-item">Profile</p>
         </Link>
+        {!user ?  (
+        <Link className="Link" to="/signin">
+          <p className="navbar-item">Login</p>
+        </Link>
+        ) : (
+          <Link className="Link" onClick={handleLogoutSuccess} >
+          <p className="navbar-item">Logout</p>
+        </Link>
+        )}
+        
       </div>
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    state: state,
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);
