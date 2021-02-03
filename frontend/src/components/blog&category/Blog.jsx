@@ -16,7 +16,7 @@ const Blog = () => {
     <div>
       {blog ? (
         <div>
-          <img width="500px" src={blog.imageUrl} />
+          <img width="500px" src={blog.imageUrl ? blog.imageUrl : blog.thumbnail} />
           <h1>{blog.title}</h1>
           <p>{blog.description}</p>
         </div>

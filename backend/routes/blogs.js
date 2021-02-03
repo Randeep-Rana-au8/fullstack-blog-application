@@ -33,7 +33,7 @@ app.post("/blog", async (req, res) => {
 
 function validateBlog(data) {
   const schema = {
-    title: Joi.string().min(10).max(50).required(),
+    title: Joi.string().min(20).max(100).required(),
     description: Joi.string().min(50).max(1500).required(),
     date: Joi.date(),
     category: Joi.array().required(),

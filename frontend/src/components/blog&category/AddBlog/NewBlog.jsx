@@ -22,7 +22,14 @@ const NewBlog = ({ add_blog }) => {
   return (
     <form className="form" onSubmit={handleClick}>
       <label for="title">Title</label>
-      <input className="input" value={title} onChange={(e) => setTitle(e.target.value)} type="text" id="title" />
+      <input
+        className="input"
+        value={title}
+        maxLength="100"
+        onChange={(e) => setTitle(e.target.value)}
+        type="text"
+        id="title"
+      />
       <label for="description">description</label>
       <input
         className="input"
