@@ -12,10 +12,13 @@ const AllBlogs = ({ data }) => {
           <div key={blog._id} className="blog">
             <div className="blog-title" style={{ maxWidth: "240px" }}>
               <Link className="Link" to={`/blog/${blog._id}`}>
-                <h4 style={{ margin: "0" }}>{blog.title.length > 55 ? blog.title.slice(0, 85) : blog.title}...</h4>
+                <h4 style={{ margin: "0" }}>{blog.title.length > 55 ? blog.title.slice(0, 55) : blog.title}...</h4>
               </Link>
-              <p style={{ fontSize: "11px" }}>
-                {blog.author.name} {blog.date}
+              <p style={{ margin: "5px 0px" }} className="allBlogDescription">
+                {blog.description.length > 80 ? blog.description.slice(0, 80) + "..." : blog.description}
+              </p>
+              <p style={{ fontSize: "10px", marginTop: "2" }}>
+                {blog.author.name ? blog.author.name : blog.author} {blog.date}
               </p>
             </div>
             <Link className="Link" to={`/blog/${blog._id}`}>

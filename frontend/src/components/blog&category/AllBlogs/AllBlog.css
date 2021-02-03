@@ -5,12 +5,6 @@
   margin-bottom: 5px;
 }
 
-/* .postImage {
-  height: 100px;
-  width: 100%; */
-/* object-fit: contain; */
-/* } */
-
 .Link {
   text-decoration: none;
   color: black;
@@ -18,4 +12,8 @@
 
 .Link:hover {
   color: red;
+}
+
+.allBlogDescription {
+  font-size: 10px;
 }
