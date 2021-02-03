@@ -9,14 +9,14 @@ const NewBlog = ({ add_blog }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
+  const [category, setCategory] = useState(["Entertainment"]);
   const handleClick = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "trxlukoh");
     const result = await axios.post("https://api.cloudinary.com/v1_1/ranacloud/image/upload", formData);
-    console.log(result);
-    const data = { title, imageUrl: result.data.url, description, author };
+    const data = { title, thumbnail: result.data.url, description, author, category };
     add_blog(data);
   };
   return (
@@ -32,7 +32,13 @@ const NewBlog = ({ add_blog }) => {
         id="description"
       />
       <label for="author">Author</label>
-      <input className="input" value={author} onChange={(e) => setAuthor(e.target.value)} type="text" id="author" />
+      <input
+        className="input"
+        value={author.name}
+        onChange={(e) => setAuthor({ name: e.target.value })}
+        type="text"
+        id="author"
+      />
       <label for="AddImage">Add Image</label>
       <input type="file" onChange={(e) => setImage(e.target.files[0])} placeholder="Add Image" id="AddImage" />
       <input type="submit" className="button" />

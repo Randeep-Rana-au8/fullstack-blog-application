@@ -10,6 +10,8 @@ app.get("/posts", async (req, res) => {
 
 app.post("/blog", async (req, res) => {
   const { error } = validateBlog(req.body);
+  console.log(req.body);
+
   if (error) return res.status(400).send(error.details[0].message);
   const blog = new Blog({
     title: req.body.title,
@@ -25,6 +27,7 @@ app.post("/blog", async (req, res) => {
   });
 
   await blog.save();
+  console.log(blog);
   res.send(blog);
 });
 

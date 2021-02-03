@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./AllBlog.css";
 
 const AllBlogs = ({ data }) => {
-  console.log(data);
   return (
     <div className="allBlogs">
       {data
@@ -16,11 +15,11 @@ const AllBlogs = ({ data }) => {
                 <h4 style={{ margin: "0" }}>{blog.title.length > 55 ? blog.title.slice(0, 85) : blog.title}...</h4>
               </Link>
               <p style={{ fontSize: "11px" }}>
-                {blog.author} {blog.date}
+                {blog.author.name} {blog.date}
               </p>
             </div>
             <Link className="Link" to={`/blog/${blog._id}`}>
-              <img height="100px" alt="Blog" src={blog.imageUrl} />
+              <img height="100px" alt="Blog" src={blog.thumbnail ? blog.thumbnail : blog.imageUrl} />
             </Link>
           </div>
         ))}

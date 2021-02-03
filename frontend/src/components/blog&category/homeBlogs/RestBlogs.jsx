@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./RestBlogs.css";
 
 const RestBlogs = ({ data }) => {
-  console.log(data.description);
+  console.log(data);
   return (
     <div className="RestBlogs">
       {data
@@ -18,8 +18,9 @@ const RestBlogs = ({ data }) => {
               <p className="description">
                 {blog.description.length > 400 ? blog.description.slice(0, 400) + "..." : blog.description}
               </p>
+
               <p style={{ fontSize: "11px" }}>
-                {blog.author} {blog.date}
+                <span>{blog.author.name ? blog.author.name : blog.author}</span> <span>{blog.date}</span>
               </p>
             </div>
             <Link className="Link" to={`/blog/${blog._id}`}>

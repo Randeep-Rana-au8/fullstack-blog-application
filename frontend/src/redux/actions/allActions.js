@@ -5,6 +5,13 @@ export const add_blog = (data) => {
     payload: data,
   };
 };
+export const fetch_blog = (data) => {
+  console.log(data);
+  return {
+    type: "FETCH_BLOG",
+    payload: data,
+  };
+};
 
 export const last_blog = (data) => {
   const lastBlog = data[data.length - 1];

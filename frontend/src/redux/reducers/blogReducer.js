@@ -7,22 +7,32 @@ const initialState = {
 };
 
 const blogsReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { payload, type } = action;
+  switch (type) {
     case "ADD_BLOG":
-      const data = axios.post("");
+      axios
+        .post("http://localhost:3001/api/blog", payload)
+        .then((res) => console.log(res))
+        .then((err) => console.log(err));
+
       return {
         ...state,
-        blogs: [...state.blogs, action.payload],
+        blogs: [...state.blogs, payload],
+      };
+    case "FETCH_BLOG":
+      return {
+        ...state,
+        blogs: payload,
       };
     case "LAST_BLOG":
       return {
         ...state,
-        lastBlog: action.payload,
+        lastBlog: payload,
       };
     case "ADD_CATEGORIES":
       return {
         ...state,
-        categories: action.payload,
+        categories: payload,
       };
     default:
       return {
