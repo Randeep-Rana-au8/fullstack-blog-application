@@ -19,9 +19,9 @@ app.post("/blog", async (req, res) => {
     author: req.body.author,
     views: req.body.views ? req.body.views : 0,
     date: Date.now(),
-    _id: req.body._id,
-    thumbnail: req.body.thumbnail,
-    category: req.body.category,
+    // _id: req.body._id,
+    thumbnail: req.body.thumbnail ? req.body.thumbnail : req.body.imageUrl,
+    category: req.body.category ? req.body.category : "Entertainment",
   });
 
   await blog.save();

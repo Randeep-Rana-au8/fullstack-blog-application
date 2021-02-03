@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./AllBlog.css";
 
 const AllBlogs = ({ data }) => {
+  console.log(data);
   return (
     <div className="allBlogs">
       {data

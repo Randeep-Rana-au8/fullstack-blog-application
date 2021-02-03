@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const initialState = {
   blogs: "",
   lastBlog: "",
@@ -7,9 +9,10 @@ const initialState = {
 const blogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_BLOG":
+      const data = axios.post("");
       return {
         ...state,
-        blogs: action.payload,
+        blogs: [...state.blogs, action.payload],
       };
     case "LAST_BLOG":
       return {
