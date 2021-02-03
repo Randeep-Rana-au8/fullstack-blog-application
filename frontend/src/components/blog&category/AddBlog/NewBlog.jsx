@@ -31,8 +31,10 @@ const NewBlog = ({ add_blog }) => {
         id="title"
       />
       <label for="description">description</label>
-      <input
-        className="input"
+      <textarea
+        className="textArea"
+        rows="6"
+        cols="50"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         type="text"
