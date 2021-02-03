@@ -10,6 +10,8 @@ app.get("/posts", async (req, res) => {
 
 app.post("/blog", async (req, res) => {
   const { error } = validateBlog(req.body);
+  console.log(req.body);
+
   if (error) return res.status(400).send(error.details[0].message);
   const blog = new Blog({
     title: req.body.title,
@@ -19,18 +21,19 @@ app.post("/blog", async (req, res) => {
     author: req.body.author,
     views: req.body.views ? req.body.views : 0,
     date: Date.now(),
-    _id: req.body._id,
-    thumbnail: req.body.thumbnail,
-    category: req.body.category,
+    // _id: req.body._id,
+    thumbnail: req.body.thumbnail ? req.body.thumbnail : req.body.imageUrl,
+    category: req.body.category ? req.body.category : "Entertainment",
   });
 
   await blog.save();
+  console.log(blog);
   res.send(blog);
 });
 
 function validateBlog(data) {
   const schema = {
-    title: Joi.string().min(10).max(50).required(),
+    title: Joi.string().min(20).max(100).required(),
     description: Joi.string().min(50).max(1500).required(),
     date: Joi.date(),
     category: Joi.array().required(),
