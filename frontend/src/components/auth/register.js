@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { setUser } from "../../redux/actions/userActions";
+import { Redirect } from "react-router-dom";
 
-const Ragister = () => {
+
+const Ragister = ({ state, setUser }) => {
+
+  const { user } = state.usersReducer
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -13,6 +20,7 @@ const Ragister = () => {
   const onUserNameChange = (event) => setUserName(event.target.value);
   const onEmailChange = (event) => setEmail(event.target.value);
   const onPasswordChange = (event) => setPassword(event.target.value);
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -27,11 +35,14 @@ const Ragister = () => {
       })
       .then(function (response) {
         console.log(response);
+        setUser(response);
       })
       .catch(function (error) {
         console.log(error);
       });
   };
+
+  if (user) return <Redirect to='/homePage' />;
 
   return (
     <form onSubmit={onSubmit}>
@@ -45,4 +56,11 @@ const Ragister = () => {
   );
 };
 
-export default Ragister;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    state: state,
+  }
+}
+
+export default connect(mapStateToProps, { setUser })(Ragister);
