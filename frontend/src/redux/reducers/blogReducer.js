@@ -11,7 +11,7 @@ const blogsReducer = (state = initialState, action) => {
   switch (type) {
     case "ADD_BLOG":
       axios
-        .post("http://localhost:3001/api/blog", payload)
+        .post("https://myvicharbackend.herokuapp.com/api/blog", payload)
         .then((res) => console.log(res))
         .then((err) => console.log(err));
 
