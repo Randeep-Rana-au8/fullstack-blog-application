@@ -40,7 +40,12 @@ const WelcomePage = () => {
       </section>
       <section className="welcomeSection third">
         <div className="info">
-          <h1>Explore New Things with Us</h1>
+          <h1>History</h1>
+          <h3 style={{ marginTop: 0 }}>
+            History is the study of change over time, and it covers all aspects of human society. ... History is an
+            intellectual discipline practiced by historians who try to make sense of the past.
+          </h3>
+          <h3>Because history is about change, nothing was ever “always” a certain way.</h3>
           <button className="exploreButton button3">Explore</button>
         </div>
         <div>
