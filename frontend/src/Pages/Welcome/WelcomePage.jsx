@@ -1,5 +1,6 @@
 import React from "react";
 import "./WelcomePage.css";
+import { Button } from "react-bootstrap";
 
 const WelcomePage = () => {
   return (
@@ -7,7 +8,7 @@ const WelcomePage = () => {
       <section className="welcomeSection first">
         <div className="info">
           <h1>Explore New Things with Us</h1>
-          <button className="exploreButton button1">Explore</button>
+          <Button className="exploreButton button1">Explore</Button>
         </div>
         <div>
           <img
@@ -27,26 +28,26 @@ const WelcomePage = () => {
         </div>
         <div className="info">
           <h1>Tech</h1>
-          <h3 style={{ marginTop: "0" }}>
+          <h5 style={{ marginTop: "0" }}>
             Emerging technologies, technologies that are perceived as capable of changing the status quo. Hypothetical
             technology, technology that does not exist yet, but could exist in the future.
-          </h3>
-          <h3>
+          </h5>
+          <h5>
             Advances in digital technologies hold considerable potential to lift the trajectory of productivity and
             economic growth, and to create new and better jobs to replace old ones.
-          </h3>
-          <button className="exploreButton button2">Explore</button>
+          </h5>
+          <Button className="exploreButton button2">Explore</Button>
         </div>
       </section>
       <section className="welcomeSection third">
         <div className="info">
           <h1>History</h1>
-          <h3 style={{ marginTop: 0 }}>
+          <h5 style={{ marginTop: 0 }}>
             History is the study of change over time, and it covers all aspects of human society. ... History is an
             intellectual discipline practiced by historians who try to make sense of the past.
-          </h3>
-          <h3>Because history is about change, nothing was ever “always” a certain way.</h3>
-          <button className="exploreButton button3">Explore</button>
+          </h5>
+          <h5>Because history is about change, nothing was ever “always” a certain way.</h5>
+          <Button className="exploreButton button3">Explore</Button>
         </div>
         <div>
           <img
@@ -66,15 +67,15 @@ const WelcomePage = () => {
         </div>
         <div className="info">
           <h1>Space</h1>
-          <h3 style={{ marginTop: 0 }}>
+          <h5 style={{ marginTop: 0 }}>
             Space, also known as outer space, is the near-vacuum between celestial bodies. It is where everything (all
             of the planets, stars, galaxies and other objects) is found.
-          </h3>
-          <h3>
+          </h5>
+          <h5>
             On Earth, space begins at the Kármán line (100 km above sea level). This is where Earth's atmosphere is said
             to stop and outer space begins.
-          </h3>
-          <button className="exploreButton button4">Explore</button>
+          </h5>
+          <Button className="exploreButton button4">Explore</Button>
         </div>
       </section>
     </div>
