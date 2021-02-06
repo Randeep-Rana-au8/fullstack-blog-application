@@ -26,7 +26,15 @@ const WelcomePage = () => {
           />
         </div>
         <div className="info">
-          <h1>Explore Tech Things with Us</h1>
+          <h1>Tech</h1>
+          <h3 style={{ marginTop: "0" }}>
+            Emerging technologies, technologies that are perceived as capable of changing the status quo. Hypothetical
+            technology, technology that does not exist yet, but could exist in the future.
+          </h3>
+          <h3>
+            Advances in digital technologies hold considerable potential to lift the trajectory of productivity and
+            economic growth, and to create new and better jobs to replace old ones.
+          </h3>
           <button className="exploreButton button2">Explore</button>
         </div>
       </section>
