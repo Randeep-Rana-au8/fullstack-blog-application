@@ -8,7 +8,7 @@ const Category = () => {
   useEffect(
     () =>
       axios
-        .get(`http://localhost:3001/api/category/${name}`)
+        .get(`http://myvicharbackend.herokuapp.com/api/category/${name}`)
         .then((res) => setPosts(res.data))
         .catch((err) => console.log(err)),
     []
