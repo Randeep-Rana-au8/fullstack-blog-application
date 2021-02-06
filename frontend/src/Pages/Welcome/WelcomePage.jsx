@@ -65,7 +65,15 @@ const WelcomePage = () => {
           />
         </div>
         <div className="info">
-          <h1>Explore Tech Things with Us</h1>
+          <h1>Space</h1>
+          <h3 style={{ marginTop: 0 }}>
+            Space, also known as outer space, is the near-vacuum between celestial bodies. It is where everything (all
+            of the planets, stars, galaxies and other objects) is found.
+          </h3>
+          <h3>
+            On Earth, space begins at the Kármán line (100 km above sea level). This is where Earth's atmosphere is said
+            to stop and outer space begins.
+          </h3>
           <button className="exploreButton button4">Explore</button>
         </div>
       </section>
