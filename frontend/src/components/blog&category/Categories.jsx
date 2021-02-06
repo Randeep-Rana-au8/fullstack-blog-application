@@ -2,7 +2,8 @@ import axios from "axios";
 import { connect } from "react-redux";
 import React, { useEffect } from "react";
 import { add_categories } from "../../redux/actions/allActions";
-import "./Category.css";
+import "./Categories.css";
+import { Link } from "react-router-dom";
 
 const Category = ({ categories, add_categories }) => {
   useEffect(async () => {
@@ -16,9 +17,11 @@ const Category = ({ categories, add_categories }) => {
       <h1>Category</h1>
       <div className="categories">
         {categories.map((data) => (
-          <button style={{ backgroundImage: `url(${data.image})` }} className="category-button" key={data.id}>
-            <div className="overlay">{data.category}</div>
-          </button>
+          <Link to={`category/${data.category}`}>
+            <button style={{ backgroundImage: `url(${data.image})` }} className="category-button" key={data.id}>
+              <div className="overlay">{data.category}</div>
+            </button>
+          </Link>
         ))}
       </div>
     </div>

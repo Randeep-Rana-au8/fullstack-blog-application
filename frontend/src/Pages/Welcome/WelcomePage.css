@@ -1,0 +1,32 @@
+.welcomeSection {
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 60px;
+}
+
+.info {
+  width: 50%;
+  padding: 0 100px;
+  padding-top: 20px;
+}
+
+.info > h1 {
+  font-size: 75px;
+  margin: 0;
+  color: #e97348;
+  position: relative;
+  top: -30px;
+}
+
+.exploreButton {
+  width: 250px;
+  height: 60px;
+  background-color: #e97348;
+  color: white;
+  font-size: 25px;
+}
+.infoImage {
+  /* width: 50%; */
+}

@@ -6,7 +6,7 @@ import LatestBlog from "../components/blog&category/LatestBlog";
 import AllBlogs from "../components/blog&category/AllBlogs/AllBlogs";
 import RestBlogs from "../components/blog&category/homeBlogs/RestBlogs";
 import TopCreators from "../components/Creators/TopCreators";
-import Category from "../components/blog&category/Category";
+import Categories from "../components/blog&category/Categories";
 import "./Homepage.css";
 
 const Homepage = ({ state, fetch_blog, last_blog }) => {
@@ -36,7 +36,7 @@ const Homepage = ({ state, fetch_blog, last_blog }) => {
       </section>
       <section id="category">
         <hr />
-        <Category />
+        <Categories />
       </section>
       <section>
         <hr />
