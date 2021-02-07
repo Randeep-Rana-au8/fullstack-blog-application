@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import Spinner from "../loaderSpinner/Spinner";
 import { useParams } from "react-router-dom";
 
 const Blog = () => {
@@ -21,7 +21,9 @@ const Blog = () => {
           <p>{blog.description}</p>
         </div>
       ) : (
-        "Loading..."
+        <div className="loadingSpinner">
+          <Spinner />
+        </div>
       )}
     </div>
   );
