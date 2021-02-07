@@ -10,7 +10,7 @@ const WelcomePage = () => {
           <h1>Explore New Things with Us</h1>
           <Button className="exploreButton button1">Explore</Button>
         </div>
-        <div>
+        <div className="firstImage imageDiv">
           <img
             className="infoImage"
             src="https://cdn.pixabay.com/photo/2016/02/19/10/00/binoculars-1209011__480.jpg"
@@ -19,9 +19,9 @@ const WelcomePage = () => {
         </div>
       </section>
       <section className="welcomeSection second">
-        <div>
+        <div className="secondImage imageDiv">
           <img
-            className="infoImage"
+            className="infoImage "
             src="https://cdn.pixabay.com/photo/2019/08/06/22/48/artificial-intelligence-4389372__480.jpg"
             alt="blog"
           />
@@ -49,7 +49,7 @@ const WelcomePage = () => {
           <h5>Because history is about change, nothing was ever “always” a certain way.</h5>
           <Button className="exploreButton button3">Explore</Button>
         </div>
-        <div>
+        <div className="thirdImage imageDiv">
           <img
             className="infoImage"
             src="https://cdn.pixabay.com/photo/2018/02/25/21/34/bada-bagh-3181803__480.jpg"
@@ -58,7 +58,7 @@ const WelcomePage = () => {
         </div>
       </section>
       <section className="welcomeSection forth">
-        <div>
+        <div className="forthImage imageDiv">
           <img
             className="infoImage"
             src="https://cdn.pixabay.com/photo/2016/11/19/20/16/astronaut-1840936__480.jpg"
