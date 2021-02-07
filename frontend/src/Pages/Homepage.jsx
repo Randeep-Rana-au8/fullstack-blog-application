@@ -25,7 +25,7 @@ const Homepage = ({ state, fetch_blog, last_blog }) => {
     <div className="homepage">
       <section className="topSection">
         {blogs ? (
-          <div className="container">
+          <div className="mycontainer">
             <LatestBlog data={lastBlog} />
             <AllBlogs data={blogs} />
             <TopCreators />
@@ -41,7 +41,7 @@ const Homepage = ({ state, fetch_blog, last_blog }) => {
       <section>
         <hr />
         {blogs ? (
-          <div className="container">
+          <div className="mycontainer">
             <RestBlogs data={blogs} />
           </div>
         ) : (
