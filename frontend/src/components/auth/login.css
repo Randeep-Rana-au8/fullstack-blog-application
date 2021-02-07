@@ -1,8 +1,5 @@
 .loginForm {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  width: 30%;
 }
 
 .mainDiv {
@@ -21,4 +18,8 @@
 
 .imgDiv {
   width: 50%;
+}
+
+.loginSvg {
+  width: 500px;
 }

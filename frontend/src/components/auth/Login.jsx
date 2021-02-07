@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { setUser } from "../../redux/actions/userActions";
 import { Redirect } from "react-router-dom";
 import "./login.css";
+import Svg from "./loginSvg.svg";
+import { Button, Form, FormControl } from "react-bootstrap";
 
 const Login = ({ state, setUser }) => {
   const { user } = state.usersReducer;
@@ -36,18 +38,35 @@ const Login = ({ state, setUser }) => {
   if (user) return <Redirect to="/homePage" />;
   return (
     <div className="mainDiv">
-      <div className="imgDiv">Here will be image</div>
-      <form onSubmit={onSubmit} className="loginForm">
-        <input className="loginInput" type="text" required placeholder="email" onChange={onEmailChange} />
-        <input className="loginInput" type="password" required placeholder="password" onChange={onPasswordChange} />
-        <button className="loginButton" type="submit">
-          login
-        </button>
-        <div className="singup">
-          New User?
-          <Link to="/signup">signup</Link>
+      <div className="imgDiv">
+        <img className="loginSvg" src={Svg} alt="login svg" />
+      </div>
+
+      <Form className="loginForm" onSubmit={onSubmit}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" onChange={onEmailChange} />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" onChange={onPasswordChange} />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
+        <div>
+          <br />
+          <p>
+            {" "}
+            <span>New User? </span>
+            <span>
+              <Link to="/signup">Signup</Link>
+            </span>
+          </p>
         </div>
-      </form>
+      </Form>
     </div>
   );
 };
