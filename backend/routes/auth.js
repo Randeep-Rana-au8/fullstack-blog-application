@@ -2,14 +2,20 @@ const express = require("express");
 const router = express();
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const User = require("../../model/user");
+const User = require("../model/user");
 const Joi = require('joi');
+const requireLogin = require('../middelware/requireLogin')
+const { JWT_SECRET } = require('../keys/keys')
 
-router.post("/RegisterUser", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const {email, password} = req.body;
+
+    // validating users data
     const { error } = validateUser(req.body);
     if (error) return res.status(400).send(error.details[0].message);
+
+    // finding user with same email
     let user = await User.findOne({email})
     if(user) {
     return res.status(200).json({
@@ -17,16 +23,21 @@ router.post("/RegisterUser", async (req, res) => {
         code: 400
       })
     }
+
+    // hashing password
+    const salt = await bcrypt.genSalt(10);
+    hashedPassword = await bcrypt.hash(password, salt)
+
+    // creating new user data
     user = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: hashedPassword,
       role: req.body.role ? req.body.role : "user",
     });
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt)
+    
     await user.save();
     //Payload for the token
     const payload = {
@@ -34,9 +45,10 @@ router.post("/RegisterUser", async (req, res) => {
             id: user.id
         }
     };
-    jwt.sign(payload, "randomString", {expiresIn: 100000}, (err, token) => {
+    jwt.sign(payload, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
         res.status(200).json({
             token,
+            user,
             code: 200
         })
     }) 
@@ -62,10 +74,10 @@ function validateUser(data) {
   return Joi.validate(data, schema);
 }
 
-router.post('/login', async (req,res) => {
+router.post('/signin', async (req,res) => {
   const {email, password} = req.body;
   try {
-    let user = await User.findOne({email});
+    const user = await User.findOne({email});
     //checking whether user exists
     if(!user) {
         return res.status(200).json({
@@ -73,10 +85,12 @@ router.post('/login', async (req,res) => {
             code: 404
         });
     }
+
+    // checking whether password is correct
     const isMatch = await bcrypt.compare(password, user.password);
     if(!isMatch) {
         return res.status(200).json({
-            message: "Incorrect password",
+            message: "Incorrect email or password",
             code: 402
         })
     }
@@ -85,9 +99,10 @@ router.post('/login', async (req,res) => {
             id: user.id
         }
     };
-    jwt.sign(payload, "randomString", {expiresIn: 100000}, (err, token) => {
+    jwt.sign(payload, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
         res.status(200).json({
             token,
+            user,
             code: 200
         })
     })
@@ -99,6 +114,22 @@ router.post('/login', async (req,res) => {
         })
   }
 })
+
+
+router.get('/myProfile',requireLogin, (req,res) => {
+  console.log(req.body)
+  res.send(req.body)
+})
+
+
+router.get("/logout", requireLogin, (req, res)=>{
+  User.findById(req.user._id).then((rUser)=>{
+    rUser.online = false;
+    rUser.save();
+    });
+  req.logout();
+  res.send('logout ');
+});
 
 // This is admin only route
 router.get('/allusers', async (req,res) => {

@@ -4,8 +4,8 @@ const cors = require("cors");
 const Api = require("./routes/data");
 const posts = require("./routes/blogs");
 const post = require("./routes/blog");
-const port = process.env.PORT || 3001;
-const user = require("./routes/user/user");
+const port = process.env.PORT || 5000;
+const user = require("./routes/auth");
 const health = require("./routes/health");
 const categoryPosts = require("./routes/category");
 
