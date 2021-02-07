@@ -8,10 +8,10 @@ import RestBlogs from "../components/blog&category/homeBlogs/RestBlogs";
 import TopCreators from "../components/Creators/TopCreators";
 import Categories from "../components/blog&category/Categories";
 import "./Homepage.css";
+import Spinner from "../components/loaderSpinner/Spinner";
 
 const Homepage = ({ state, fetch_blog, last_blog }) => {
   const { blogs, lastBlog } = state.blogsReducer;
-
   useEffect(() => {
     async function fetchData() {
       const result = await axios.get("https://myvicharbackend.herokuapp.com/api/posts");
@@ -23,31 +23,32 @@ const Homepage = ({ state, fetch_blog, last_blog }) => {
 
   return (
     <div className="homepage">
-      <section className="topSection">
-        {blogs ? (
-          <div className="mycontainer">
-            <LatestBlog data={lastBlog} />
-            <AllBlogs data={blogs} />
-            <TopCreators />
-          </div>
-        ) : (
-          "Loading..."
-        )}
-      </section>
-      <section id="category">
-        <hr />
-        <Categories />
-      </section>
-      <section>
-        <hr />
-        {blogs ? (
-          <div className="mycontainer">
-            <RestBlogs data={blogs} />
-          </div>
-        ) : (
-          "Loading..."
-        )}
-      </section>
+      {blogs ? (
+        <>
+          <section className="topSection">
+            <div className="mycontainer">
+              <LatestBlog data={lastBlog} />
+              <AllBlogs data={blogs} />
+              <TopCreators />
+            </div>
+          </section>
+          <section id="category">
+            <hr />
+            <Categories />
+          </section>
+          <section>
+            <hr />
+
+            <div className="mycontainer">
+              <RestBlogs data={blogs} />
+            </div>
+          </section>
+        </>
+      ) : (
+        <div className="loadingSpinner">
+          <Spinner />
+        </div>
+      )}
     </div>
   );
 };
