@@ -41,6 +41,7 @@
 
 .imageDiv {
   overflow: hidden;
+  border-radius: 9px;
 }
 
 .imageDiv img {
