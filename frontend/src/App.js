@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import NewBlog from "./components/blog&category/AddBlog/NewBlog";
 import Category from "./components/blog&category/category/Category";
 import WelcomePage from "./Pages/Welcome/WelcomePage";
+import NewFooter from "./components/Footer/NewFooter";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
       <Route exact path="/addpost" component={NewBlog} />
       <Route exact path="/category/:name" component={Category} />
       <hr />
-      <Footer />
+      <NewFooter />
     </div>
   );
 }
