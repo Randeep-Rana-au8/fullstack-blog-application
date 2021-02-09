@@ -39,13 +39,8 @@ router.post("/signup", async (req, res) => {
     });
     
     await user.save();
-    //Payload for the token
-    const payload = {
-        user: {
-            id: user.id
-        }
-    };
-    jwt.sign(payload, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
+    
+    jwt.sign({id: user.id}, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
         res.status(200).json({
             token,
             user,
@@ -117,8 +112,7 @@ router.post('/signin', async (req,res) => {
 
 
 router.get('/myProfile',requireLogin, (req,res) => {
-  console.log(req.body)
-  res.send(req.body)
+  res.send(req.user)
 })
 
 

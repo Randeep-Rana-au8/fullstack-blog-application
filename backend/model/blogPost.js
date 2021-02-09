@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema.Types
 
 const blogSchema = new mongoose.Schema({
   title: {
@@ -20,8 +21,8 @@ const blogSchema = new mongoose.Schema({
     trim: true,
   },
   author: {
-    type: Object,
-    required: true,
+    type: String,
+    ref: "User"
   },
   category: {
     type: Array,
@@ -30,23 +31,11 @@ const blogSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now(),
-  },
-  likes: {
-    type: Number,
-    default: 0,
-  },
-  comments: {
-    type: Array,
-    default: [],
-  },
-  views: {
-    type: Number,
-    default: 0,
-  },
-  thumbnail: {
-    type: String,
-    required: true,
-  },
+  }
+  // thumbnail: {
+  //   type: String,
+  //   required: true,
+  // },
 });
 
 module.exports = mongoose.model("Blog", blogSchema);
