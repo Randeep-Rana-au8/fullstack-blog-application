@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema.Types
 
 const blogSchema = new mongoose.Schema({
   title: {
@@ -20,8 +21,8 @@ const blogSchema = new mongoose.Schema({
     trim: true,
   },
   author: {
-    type: Object,
-    required: true,
+    type:ObjectId,
+    ref:"User"
   },
   category: {
     type: Array,

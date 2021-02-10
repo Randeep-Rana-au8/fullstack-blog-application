@@ -35,6 +35,7 @@ const Ragister = ({ state, setUser }) => {
       })
       .then(function (response) {
         console.log(response);
+        localStorage.setItem("jwt",response.data.token)
         setUser(response);
       })
       .catch(function (error) {

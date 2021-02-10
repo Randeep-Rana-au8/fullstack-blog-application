@@ -27,7 +27,7 @@ const Login = ({ state, setUser }) => {
         password: password,
       })
       .then(function (response) {
-        console.log(response);
+        localStorage.setItem("jwt",response.data.token)
         setUser(response, ...email, ...password);
       })
       .catch(function (error) {

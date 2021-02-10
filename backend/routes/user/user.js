@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require("../../model/user");
 const Joi = require('joi');
+const requireLogin = require('../../middleware/requireLogin')
+const { JWT_SECRET } = require('../../keys/keys')
 
 router.post("/RegisterUser", async (req, res) => {
   try {
@@ -34,7 +36,7 @@ router.post("/RegisterUser", async (req, res) => {
             id: user.id
         }
     };
-    jwt.sign(payload, "randomString", {expiresIn: 100000}, (err, token) => {
+    jwt.sign(payload, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
         res.status(200).json({
             token,
             code: 200
@@ -85,7 +87,7 @@ router.post('/login', async (req,res) => {
             id: user.id
         }
     };
-    jwt.sign(payload, "randomString", {expiresIn: 100000}, (err, token) => {
+    jwt.sign(payload, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
         res.status(200).json({
             token,
             code: 200
@@ -98,6 +100,12 @@ router.post('/login', async (req,res) => {
             code: 502
         })
   }
+})
+
+router.get('/myProfile',requireLogin, (req,res) => {
+  console.log(req.user)
+  console.log("working")
+  res.send(req.user)
 })
 
 // This is admin only route

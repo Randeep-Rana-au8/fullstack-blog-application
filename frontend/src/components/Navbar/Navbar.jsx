@@ -39,7 +39,7 @@ const Navbar = ({ state }) => {
         <Link className="Link" to="/addpost">
           <p className="navbar-item">Add Post</p>
         </Link>
-        <Link className="Link" to="/profile">
+        <Link className="Link" to="/myProfile">
           <p className="navbar-item">Profile</p>
         </Link>
         {!user ?  (

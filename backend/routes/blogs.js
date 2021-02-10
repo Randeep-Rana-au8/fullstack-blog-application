@@ -2,23 +2,24 @@ const Blog = require("../model/blogPost");
 const express = require("express");
 const app = express();
 const Joi = require("joi");
+const requireLogin = require('../middleware/requireLogin')
 
 app.get("/posts", async (req, res) => {
   const blogs = await Blog.find();
   res.send(blogs);
 });
 
-app.post("/blog", async (req, res) => {
-  const { error } = validateBlog(req.body);
-  console.log(req.body);
+app.post("/addpost",requireLogin, async (req, res) => {
+  // const { error } = validateBlog(req.body);
+  const author = req.user
 
-  if (error) return res.status(400).send(error.details[0].message);
+  // if (error) return res.status(400).send(error.details[0].message);
   const blog = new Blog({
     title: req.body.title,
     description: req.body.description,
     likes: req.body.likes ? req.body.likes : 0,
     comments: req.body.comments ? req.body.comments : 0,
-    author: req.body.author,
+    author,
     views: req.body.views ? req.body.views : 0,
     date: Date.now(),
     // _id: req.body._id,
