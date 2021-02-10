@@ -19,7 +19,7 @@ app.post('/createpost',requireLogin, async (req,res)=>{
         postedBy:req.user
     })
     await post.save().then(result=>{
-        res.json({post:result})
+        res.json(result)
     })
     .catch(err=>{
         console.log(err)
@@ -32,7 +32,7 @@ app.get('/allpost',(req,res)=>{
     // .populate("comments.postedBy","_id name")
     .sort('-createdAt')
     .then((posts)=>{
-        res.json({posts})
+        res.json(posts)
     }).catch(err=>{
         console.log(err)
     })
