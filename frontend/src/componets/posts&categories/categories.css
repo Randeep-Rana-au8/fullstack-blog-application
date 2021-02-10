@@ -1,0 +1,19 @@
+.category-button {
+    margin: 0px 10px 5px 5px;
+    height: 50px;
+    padding: 50px;
+    background-size: contain;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .category-button:hover {
+    font-size: 15px;
+  }
+  
+  /* .overlay {
+    background: red;
+    display: flex; */
+  /* padding: 50px; */
+  /* } */
+  

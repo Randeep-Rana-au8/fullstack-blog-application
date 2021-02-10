@@ -4,8 +4,8 @@ const app = express();
 const Joi = require("joi");
 const requireLogin = require('../middelware/requireLogin')
 
-app.post('/createpost',requireLogin,(req,res)=>{
-    const {title,body} = req.body 
+app.post('/createpost',requireLogin, async (req,res)=>{
+    const {title,body,imageUrl,category} = req.body 
     if(!title || !body){
       return  res.status(422).json({error:"Plase add all the fields"})
     }
@@ -14,10 +14,11 @@ app.post('/createpost',requireLogin,(req,res)=>{
     const post = new Post({
         title,
         body,
-        // photo:pic,
+        imageUrl,
+        category,
         postedBy:req.user
     })
-    post.save().then(result=>{
+    await post.save().then(result=>{
         res.json({post:result})
     })
     .catch(err=>{
@@ -25,7 +26,7 @@ app.post('/createpost',requireLogin,(req,res)=>{
     })
 })
 
-app.get('/allpost',requireLogin,(req,res)=>{
+app.get('/allpost',(req,res)=>{
     Post.find()
     .populate("postedBy","_id username")
     // .populate("comments.postedBy","_id name")

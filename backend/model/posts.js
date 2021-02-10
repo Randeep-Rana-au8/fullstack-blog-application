@@ -9,10 +9,14 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    photo:{
-        type:String,
-        default:'no photo'
-    },
+    category: {
+        type: Array,
+        required: true,
+      },
+      imageUrl: {
+        type: String,
+        trim: true,
+      },
     // likes:[{type:ObjectId,ref:"User"}],
     // comments:[{
     //     text:String,
@@ -24,5 +28,4 @@ const postSchema = new mongoose.Schema({
     }
 },{timestamps:true})
 
-// mongoose.model("Post",postSchema)
 module.exports = mongoose.model("Post", postSchema)
