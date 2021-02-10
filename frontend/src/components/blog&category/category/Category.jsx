@@ -32,7 +32,7 @@ const Category = () => {
                 </p>
               </div>
               <Link className="Link" to={`/blog/${blog._id}`}>
-                <img height="180px" alt="Blog" src={blog.imageUrl} />
+                <img height="180px" alt="Blog" src={blog.imageUrl ? blog.imageUrl : blog.thumbnail} />
               </Link>
             </div>
           ))
