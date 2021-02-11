@@ -3,6 +3,7 @@ const router = express();
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require("../../model/user");
+const Blog = require("../../model/blogPost");
 const Joi = require('joi');
 const requireLogin = require('../../middleware/requireLogin')
 const { JWT_SECRET } = require('../../keys/keys')
@@ -106,6 +107,17 @@ router.get('/myProfile',requireLogin, (req,res) => {
   console.log(req.user)
   console.log("working")
   res.send(req.user)
+})
+
+router.get('/mypost',requireLogin,(req,res)=>{
+  Blog.find({author:req.user._id})
+  .populate("author","_id username")
+  .then(mypost=>{
+      res.json({mypost})
+  })
+  .catch(err=>{
+      console.log(err)
+  })
 })
 
 // This is admin only route

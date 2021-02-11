@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 function ProfilePage({ setProfile }) {
     const [user, setuser] = useState('')
     var result = Object.keys(user).map((key) => [String(key), user[key]]);
-    console.log(result[firstName])
+    console.log(result)
     useEffect(async () => {
        console.log(localStorage.getItem("jwt"))
         const headers = {
@@ -22,9 +22,9 @@ function ProfilePage({ setProfile }) {
     
     return (
         <div>
-            {result.map((user) => (
+            {/* {result.map((user) => (
                 <Userdtails key={user} />
-            ))}
+            ))} */}
             
         </div>
     )
