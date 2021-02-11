@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const url =
-  "mongodb+srv://Surya:Surya1234@cluster.pz6q6.mongodb.net/capstone?retryWrites=true&w=majority";
+const url = "mongodb+srv://Surya:Surya1234@cluster.pz6q6.mongodb.net/capstone?retryWrites=true&w=majority";
 
 const InitiateMongoServer = async () => {
   try {
@@ -9,6 +8,7 @@ const InitiateMongoServer = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
+      useFindAndModify: false,
     });
     console.log("connected to DB !!");
   } catch (e) {

@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import "./EditProfile.css";
+import axios from "axios";
 
 const EditProfile = ({ user, cancel }) => {
+  //   console.log(user);
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const handleCancel = () => {
     cancel(false);
+  };
+
+  const handleUpdate = async () => {
+    console.log("updating");
+    const result = await axios.put(`http://localhost:3001/user/update/${user._id}`, {
+      username,
+      email,
+      firstName,
+      lastName,
+    });
+    console.log(result);
   };
   return (
     <div className="edit">
@@ -31,6 +44,7 @@ const EditProfile = ({ user, cancel }) => {
       </div>
       <br />
       <button onClick={handleCancel}>Cancel</button>
+      <button onClick={handleUpdate}>Update</button>
     </div>
   );
 };
