@@ -1,17 +1,12 @@
-import React from 'react'
+import React from "react";
 
-
-function Profile({user}) {
-
-    console.log(user)
-    return (
-        <div>
-            {/* <h1>{user.firstName }  {user.lastName}</h1> */}
-        </div>
-    )
+function Profile({ user }) {
+  console.log(user);
+  return (
+    <div>
+      <h1> Welcome</h1>
+    </div>
+  );
 }
 
-
-
-export default Profile
-
+export default Profile;

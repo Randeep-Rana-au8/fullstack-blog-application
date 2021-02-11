@@ -1,0 +1,23 @@
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileCard img {
+  height: 200px;
+  max-width: fit-content;
+}
+
+.profileEditButton {
+  margin-top: 10px;
+  width: 100px;
+  border: 0.5px solid black;
+}
+
+.profileEditButton:hover {
+  background-color: rgb(223, 102, 46);
+  color: white;
+}

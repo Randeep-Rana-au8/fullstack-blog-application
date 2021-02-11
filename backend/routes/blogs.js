@@ -2,7 +2,8 @@ const Blog = require("../model/blogPost");
 const express = require("express");
 const app = express();
 const Joi = require("joi");
-const requireLogin = require('../middleware/requireLogin')
+const requireLogin = require('../middleware/requireLogin');
+const router = require("./user/user");
 
 app.get("/posts", async (req, res) => {
   const blogs = await Blog.find();
@@ -49,8 +50,9 @@ function validateBlog(data) {
   return Joi.validate(data, schema);
 }
 
-app.put('/like',requireLogin,(req,res)=>{
-  Post.findByIdAndUpdate(req.body.postId,{
+
+router.put('/like',requireLogin,(req,res)=>{
+  Blog.findByIdAndUpdate(req.body._id,{
       $push:{likes:req.user._id}
   },{
       new:true
@@ -63,8 +65,28 @@ app.put('/like',requireLogin,(req,res)=>{
   })
 })
 
-app.put('/unlike',requireLogin,(req,res)=>{
-  Post.findByIdAndUpdate(req.body.postId,{
+router.put('/editPost/:_id', requireLogin, async (req,res) => {
+  let Id = req.params._id;
+  const mypost = await Blog.findById(Id)
+  console.log(mypost.title)
+  const title = mypost.title
+  const description = mypost.description
+  Blog.updateOne(
+      {_id: Id},
+      {
+          $set:{
+              title:( req.body.title ? req.body.title : title ),
+              description:( req.body.description ? req.body.description : description )
+          }
+      },(err,result) => {
+          if(err) throw err;
+          res.send(result);
+      }
+  )
+}) 
+
+router.put('/unlike',requireLogin,(req,res)=>{
+  Blog.findByIdAndUpdate(req.body._id,{
       $pull:{likes:req.user._id}
   },{
       new:true
