@@ -1,0 +1,20 @@
+.blog {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .Link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .Link:hover {
+    color: red;
+  }
+  
+  .allBlogDescription {
+    font-size: 10px;
+  }
+  

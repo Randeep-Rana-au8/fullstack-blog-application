@@ -10,9 +10,13 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    category: {
+      type: Array,
+      required: true,
+    },
     imageUrl: {
       type: String,
-      required: true,
+      trim: true,
     },
     // likes:[{type:ObjectId,ref:"User"}],
     // comments:[{
@@ -39,5 +43,4 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// mongoose.model("Post",postSchema)
 module.exports = mongoose.model("Post", postSchema);

@@ -1,0 +1,5 @@
+.firstLastName {
+    display: flex;
+    flex-direction: row;
+  }
+  

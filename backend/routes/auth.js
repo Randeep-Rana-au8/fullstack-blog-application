@@ -42,9 +42,7 @@ router.post("/signup", async (req, res) => {
     
     jwt.sign({id: user.id}, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
         res.status(200).json({
-            token,
-            user,
-            code: 200
+            token
         })
     }) 
   } catch (error) {
@@ -97,8 +95,6 @@ router.post('/signin', async (req,res) => {
     jwt.sign(payload, JWT_SECRET, {expiresIn: 100000}, (err, token) => {
         res.status(200).json({
             token,
-            user,
-            code: 200
         })
     })
   } catch (error) {
