@@ -1,3 +1,5 @@
+import { ADD_BLOG } from "../actionTypes";
+
 export const add_blog = (data) => {
   console.log(data);
   return {

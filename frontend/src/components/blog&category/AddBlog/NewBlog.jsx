@@ -15,11 +15,7 @@ const NewBlog = ({ add_blog }) => {
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "trxlukoh");
-    const headers = {
-      "Content-Type":"application/json",
-      "Authorization":"Bearer "+localStorage.getItem("jwt")
-        }
-    const result = await axios.post("http://localhost:3001/api/addpost",headers, formData);
+    const result = await axios.post("https://api.cloudinary.com/v1_1/ranacloud/image/upload", formData);
     console.log(result)
     const data = { title, thumbnail: result.data.url, description, category };
     add_blog(data);

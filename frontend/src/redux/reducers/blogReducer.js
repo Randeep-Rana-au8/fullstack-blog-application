@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ADD_BLOG } from "../actionTypes";
 
 const initialState = {
   blogs: "",
@@ -10,11 +11,15 @@ const blogsReducer = (state = initialState, action) => {
   const { payload, type } = action;
   switch (type) {
     case "ADD_BLOG":
+      console.log(localStorage.getItem("jwt"))
+      const headers = {
+        "Content-Type":"application/json",
+        "Authorization":"Bearer "+localStorage.getItem("jwt")
+          }
       axios
-        .post("https://myvicharbackend.herokuapp.com/api/blog", payload)
+        .post("http://localhost:3001/api/addpost",{headers}, payload)
         .then((res) => console.log(res))
         .then((err) => console.log(err));
-
       return {
         ...state,
         blogs: [...state.blogs, payload],

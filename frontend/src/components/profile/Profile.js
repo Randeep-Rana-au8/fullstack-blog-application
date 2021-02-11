@@ -1,23 +1,18 @@
-import React,{useEffect} from 'react'
-import axios from 'axios'
+import React from 'react'
 
 
-function Profile() {
-    useEffect(async () => {
-       console.log(localStorage.getItem("jwt"))
-        const headers = {
-            "Authorization":"Bearer "+localStorage.getItem("jwt")
-              }
-        const result = await axios.get("http://localhost:3001/myProfile",{headers});
-        console.log(result)
-       
-    }, [])
 
+function Profile({user}) {
+
+    console.log(user)
     return (
         <div>
-            <h1>profile Page</h1>
+            <h1>{user.firstName }  {user.lastName}</h1>
         </div>
     )
 }
 
+
+
 export default Profile
+

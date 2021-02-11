@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import Blog from "./components/blog&category/Blog";
-import Profile from './components/profile/Profile'
+import Profile from './Pages/profilepage/profilePage'
 import Categories from "./components/blog&category/Categories";
 // import Footer from "./components/Footer/Footer";
 import NewBlog from "./components/blog&category/AddBlog/NewBlog";
