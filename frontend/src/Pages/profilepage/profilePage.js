@@ -5,6 +5,7 @@ import { setProfile } from "../../redux/actions/profileActions";
 import { connect } from "react-redux";
 import UserProfile from "../../components/profile/UserProfile";
 import "./profilePage.css";
+import Spinner from "../../components/loaderSpinner/Spinner";
 
 function ProfilePage({ setProfile }) {
   const [user, setuser] = useState("");
@@ -21,7 +22,7 @@ function ProfilePage({ setProfile }) {
     setProfile(data);
   }, []);
 
-  return <div className="profile">{user ? <UserProfile user={user} /> : "loading"}</div>;
+  return <div className="profile">{user ? <UserProfile user={user} /> : <Spinner />}</div>;
 }
 
 const mapStateToProps = (state) => {
