@@ -1,0 +1,10 @@
+.topCreator {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.topCreatorImage {
+  height: 40px;
+  margin-right: 10px;
+}

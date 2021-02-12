@@ -8,15 +8,16 @@ const NewBlog = ({ add_blog }) => {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [author, setAuthor] = useState("");
+
   const [category, setCategory] = useState(["Entertainment"]);
+  console.log(category);
   const handleClick = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "trxlukoh");
     const result = await axios.post("https://api.cloudinary.com/v1_1/ranacloud/image/upload", formData);
-    console.log(result)
+    console.log(result);
     const data = { title, thumbnail: result.data.url, description, category };
     add_blog(data);
   };
@@ -41,14 +42,22 @@ const NewBlog = ({ add_blog }) => {
         type="text"
         id="description"
       />
-      <label for="author">Author</label>
-      <input
-        className="input"
-        value={author.name}
-        onChange={(e) => setAuthor({ name: e.target.value })}
-        type="text"
-        id="author"
-      />
+
+      <div>
+        <label for="category">Choose a Category</label>
+        <select value={category} onChange={(e) => setCategory([e.target.value])} id="category">
+          <option value="History">History</option>
+          <option value="Movies">Movies</option>
+          <option value="Education">Education</option>
+          <option value="Tech">Programming</option>
+          <option value="Coding">Coding</option>
+          <option value="AI">AI</option>
+          <option value="Politics">Politics</option>
+          <option value="Sports">Sports</option>
+          <option value="Reactjs">Reactjs</option>
+        </select>
+      </div>
+
       <label for="AddImage">Add Image</label>
       <input type="file" onChange={(e) => setImage(e.target.files[0])} placeholder="Add Image" id="AddImage" />
       <input type="submit" className="button" />

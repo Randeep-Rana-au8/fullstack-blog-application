@@ -1,0 +1,14 @@
+.relatedPost {
+  width: 300px;
+  /* margin-top: 20px; */
+  margin: 20px 10px 0 10px;
+}
+
+.relatedPost img {
+  height: 150px;
+  margin: 10px 0;
+}
+
+.relatedPostContainer {
+  display: flex;
+}

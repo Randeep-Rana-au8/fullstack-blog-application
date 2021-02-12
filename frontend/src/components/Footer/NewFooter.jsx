@@ -30,13 +30,13 @@ const NewFooter = () => {
                 <a href="#">FAQ</a>
               </li>
               <li>
-                <a href="#">shipping</a>
+                <a href="#">How it works</a>
               </li>
               <li>
-                <a href="#">returns</a>
+                <a href="#">Get Started</a>
               </li>
               <li>
-                <a href="#">order status</a>
+                <a href="#">Membership Issue</a>
               </li>
               <li>
                 <a href="#">payment options</a>

@@ -28,7 +28,13 @@ const EditProfile = ({ user, cancel }) => {
       <br />
       <div className="labelInput">
         <label for="username">Username</label>
-        <input type="text" id="username" onChange={(e) => setUsername(e.target.value)} value={username} />
+        <input
+          disabled={true}
+          type="text"
+          id="username"
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
+        />
       </div>
       <div className="labelInput">
         <label for="firstname">FirstName</label>

@@ -7,6 +7,8 @@ module.exports = (req, res, next) => {
   const { authorization } = req.headers;
   //authorization === Bearer ewefwegwrherhe
   console.log(req.body);
+  console.log(req.headers);
+
   if (!authorization) {
     return res.status(401).json({ error: "you must be logged in" });
   }
