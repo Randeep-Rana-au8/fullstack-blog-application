@@ -4,6 +4,7 @@ import axios from "axios";
 import { setProfile } from "../../redux/actions/profileActions";
 import { connect } from "react-redux";
 import UserProfile from "../../components/profile/UserProfile";
+import Myposts from "../../components/profile/myposts"
 import "./profilePage.css";
 import Spinner from "../../components/loaderSpinner/Spinner";
 
@@ -27,7 +28,7 @@ function ProfilePage({ setProfile }) {
   return (
       <div>
         <div className="profile">{user ? <UserProfile user={user} /> : "loading"}</div>
-        {/* <Myposts post={post}/> */}
+        <Myposts post={post}/>
     </div>
   )
 }

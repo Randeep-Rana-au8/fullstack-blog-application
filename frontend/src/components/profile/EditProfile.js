@@ -1,33 +1,36 @@
 import React, { useState } from "react";
+import "./EditProfile.css";
 
 const EditProfile = ({ user, cancel }) => {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
-  const handleClick = () => {
+  const handleCancel = () => {
     cancel(false);
   };
   return (
-    <div>
-      <div>
+    <div className="edit">
+      <h1>Update Profile</h1>
+      <br />
+      <div className="labelInput">
         <label for="username">Username</label>
         <input type="text" id="username" onChange={(e) => setUsername(e.target.value)} value={username} />
       </div>
-      <div>
+      <div className="labelInput">
         <label for="firstname">FirstName</label>
         <input type="text" id="firstname" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
       </div>
-      <div>
+      <div className="labelInput">
         <label for="lastname">LastName</label>
         <input type="text" id="lastname" onChange={(e) => setLastName(e.target.value)} value={lastName} />
       </div>
-      <div>
+      <div className="labelInput">
         <label for="email">Email</label>
         <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
-
-      <button onClick={handleClick}>Cancel</button>
+      <br />
+      <button onClick={handleCancel}>Cancel</button>
     </div>
   );
 };
