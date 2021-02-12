@@ -1,0 +1,68 @@
+.welcomeSection {
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 60px;
+}
+
+.first {
+  color: #e97348;
+}
+.button1 {
+  background-color: #e97348;
+}
+
+.second {
+  color: #2d2d2d;
+}
+.button2 {
+  margin-top: 10px;
+  background-color: #2d2d2d;
+}
+.third {
+  color: #d48219;
+}
+.button3 {
+  background-color: #ffa135;
+}
+.forth {
+  color: #2d2d2d;
+}
+.button4 {
+  background-color: #2d2d2d;
+}
+
+.info {
+  width: 40%;
+  padding: 0 60px;
+  padding-top: 20px;
+}
+
+.imageDiv {
+  overflow: hidden;
+  border-radius: 9px;
+}
+
+.imageDiv img {
+  transition: 4.5s all ease-in-out;
+}
+
+.welcomeSection:hover img {
+  transform: scale(1.5);
+}
+
+.info > h1 {
+  font-size: 75px;
+  margin: 0;
+  position: relative;
+  top: -30px;
+}
+
+.exploreButton {
+  width: 250px;
+  height: 60px;
+  margin-top: 10px;
+  color: white;
+  font-size: 25px;
+}

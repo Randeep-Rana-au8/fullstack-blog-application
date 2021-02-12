@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* background-color: rgb(255, 9, 103); */
+}
+
+.navbar-items {
+  display: flex;
+  margin-right: 10px;
+  margin-top: 40px;
+}
+
+/* .navbar-title {
+  display: flex;
+  margin-left: 10px;
+} */
+
+.navbar-item {
+  margin-right: 5px;
+}

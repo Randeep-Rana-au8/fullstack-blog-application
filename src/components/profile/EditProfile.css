@@ -1,0 +1,10 @@
+.edit {
+  width: 30vw;
+  border: solid 1px black;
+  padding: 50px;
+}
+
+.labelInput {
+  display: flex;
+  justify-content: space-between;
+}
