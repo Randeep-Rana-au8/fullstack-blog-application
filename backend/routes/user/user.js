@@ -111,9 +111,32 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.put("/user/update/:id", async (req, res) => {
+  const { id } = req.params;
+  const { firstName, lastName, email, username } = req.body;
+  console.log(id);
+  try {
+    const user = await User.findByIdAndUpdate(
+      id,
+      {
+        $set: {
+          firstName,
+          lastName,
+          email,
+          username,
+        },
+      },
+      { new: true }
+    );
+    console.log(user);
+    res.send(user);
+  } catch (err) {
+    console.log(err.details[0].message);
+  }
+});
+
 router.get("/myProfile", requireLogin, (req, res) => {
   console.log(req.user);
-  console.log("working");
   res.send(req.user);
 });
 
