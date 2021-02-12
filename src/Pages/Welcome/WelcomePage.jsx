@@ -1,6 +1,7 @@
 import React from "react";
 import "./WelcomePage.css";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const WelcomePage = () => {
   return (
@@ -8,7 +9,11 @@ const WelcomePage = () => {
       <section className="welcomeSection first">
         <div className="info">
           <h1>Explore New Things with Us</h1>
-          <Button className="exploreButton button1">Explore</Button>
+          <Button className="exploreButton button1">
+            <Link className="Link" to="/homepage">
+              <p className="navbar-item">Explore</p>
+            </Link>
+          </Button>
         </div>
         <div className="firstImage imageDiv">
           <img
@@ -36,7 +41,12 @@ const WelcomePage = () => {
             Advances in digital technologies hold considerable potential to lift the trajectory of productivity and
             economic growth, and to create new and better jobs to replace old ones.
           </h5>
-          <Button className="exploreButton button2">Explore</Button>
+
+          <Button className="exploreButton button2">
+            <Link className="Link" to="/homepage">
+              <p className="navbar-item">Explore</p>
+            </Link>
+          </Button>
         </div>
       </section>
       <section className="welcomeSection third">
@@ -47,7 +57,11 @@ const WelcomePage = () => {
             intellectual discipline practiced by historians who try to make sense of the past.
           </h5>
           <h5>Because history is about change, nothing was ever “always” a certain way.</h5>
-          <Button className="exploreButton button3">Explore</Button>
+          <Button className="exploreButton button3">
+            <Link className="Link" to="/homepage">
+              <p className="navbar-item">Explore</p>
+            </Link>
+          </Button>
         </div>
         <div className="thirdImage imageDiv">
           <img
@@ -75,7 +89,11 @@ const WelcomePage = () => {
             On Earth, space begins at the Kármán line (100 km above sea level). This is where Earth's atmosphere is said
             to stop and outer space begins.
           </h5>
-          <Button className="exploreButton button4">Explore</Button>
+          <Button className="exploreButton button4">
+            <Link className="Link" to="/homepage">
+              <p className="navbar-item">Explore</p>
+            </Link>
+          </Button>
         </div>
       </section>
     </div>

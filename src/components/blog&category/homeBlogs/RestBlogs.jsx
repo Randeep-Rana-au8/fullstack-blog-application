@@ -19,9 +19,9 @@ const RestBlogs = ({ data }) => {
                 {blog.description.length > 280 ? blog.description.slice(0, 280) + "..." : blog.description}
               </p>
 
-              <p style={{ fontSize: "11px" }}>
+              {/* <p style={{ fontSize: "11px" }}>
                 <span>{blog.author.name ? blog.author.name : blog.author}</span> <span>{blog.date}</span>
-              </p>
+              </p> */}
             </div>
             <Link className="Link" to={`/blog/${blog._id}`}>
               <img height="180px" alt="Blog" src={blog.imageUrl} />

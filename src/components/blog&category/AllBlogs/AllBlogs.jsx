@@ -17,9 +17,9 @@ const AllBlogs = ({ data }) => {
               <p style={{ margin: "5px 0px" }} className="allBlogDescription">
                 {blog.description.length > 80 ? blog.description.slice(0, 80) + "..." : blog.description}
               </p>
-              <p style={{ fontSize: "10px", marginTop: "2" }}>
+              {/* <p style={{ fontSize: "10px", marginTop: "2" }}>
                 {blog.author.name ? blog.author.name : blog.author} {blog.date}
-              </p>
+              </p> */}
             </div>
             <Link className="Link" to={`/blog/${blog._id}`}>
               <img height="100px" alt="Blog" src={blog.thumbnail ? blog.thumbnail : blog.imageUrl} />
